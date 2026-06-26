@@ -1,0 +1,104 @@
+// Admin & Moderation Service Prisma Schema (Reports & Reviews)
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:123456@postgres:5432/admin_mod_db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../node_modules/@prisma/client/admin-mod"
+}
+
+model ReportReason {
+  id          Int       @id @default(autoincrement())
+  code        String    @unique @db.VarChar(100)
+  name        String    @db.VarChar(255)
+  description String?   @db.Text
+  category    String    @db.VarChar(50) // 'product', 'shop', 'order'
+  is_active   Boolean?  @default(true)
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+
+  reports     Report[]
+
+  @@map("report_reasons")
+}
+
+model Report {
+  id               Int       @id @default(autoincrement())
+  reporter_id      Int
+  target_type      String    @db.VarChar(50) // 'product', 'shop', 'order'
+  product_id       Int?
+  shop_id          Int?
+  shop_order_id    Int?
+  report_reason_id Int
+  custom_reason    String?   @db.Text
+  title            String?   @db.VarChar(255)
+  description      String    @db.Text
+  evidence_urls    Json?
+  severity         String?   @default("medium") @db.VarChar(50) // 'low', 'medium', 'high'
+  status           String?   @default("pending") @db.VarChar(50) // 'pending', 'under_review', 'resolved', 'closed'
+  admin_id         Int?
+  admin_note       String?   @db.Text
+  resolution       String?   @db.VarChar(100)
+  resolution_action String?  @db.VarChar(50) // 'lock_product', 'suspend_shop', 'restore_product', etc.
+  created_at       DateTime? @default(now()) @db.Timestamp(6)
+  updated_at       DateTime? @default(now()) @db.Timestamp(6)
+  resolved_at      DateTime? @db.Timestamp(6)
+
+
+  report_reason    ReportReason  @relation(fields: [report_reason_id], references: [id])
+
+  @@index([reporter_id])
+  @@index([status])
+  @@index([product_id])
+  @@index([shop_id])
+  @@index([target_type])
+
+  @@map("reports")
+}
+
+model Banner {
+  id          Int       @id @default(autoincrement())
+  title       String    @db.VarChar(255)
+  image_url   String    @db.Text
+  target_url  String?   @db.Text
+  is_active   Boolean?  @default(true)
+  sort_order  Int?      @default(0)
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @default(now()) @db.Timestamp(6)
+
+  @@map("banners")
+}
+
+model Province {
+  id         Int       @id @default(autoincrement())
+  code       String    @unique @db.VarChar(10)   // Mã tỉnh 2 chữ số (theo QĐ 19/2025/QĐ-TTg)
+  name       String    @db.VarChar(255)          // Tên tỉnh/thành phố
+  type       String?   @db.VarChar(20)           // 'tinh' | 'thanh_pho'
+  is_active  Boolean?  @default(true)
+
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  updated_at DateTime? @default(now()) @db.Timestamp(6)
+
+  wards      Ward[]
+
+  @@map("provinces")
+}
+
+model Ward {
+  id          Int       @id @default(autoincrement())
+  province_id Int
+  code        String    @unique @db.VarChar(10)   // Mã xã/phường 5 chữ số
+  name        String    @db.VarChar(255)
+  type        String?   @db.VarChar(20)           // 'phuong' | 'xa' | 'dac_khu'
+  is_active   Boolean?  @default(true)
+
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+  updated_at  DateTime? @default(now()) @db.Timestamp(6)
+
+  province    Province  @relation(fields: [province_id], references: [id])
+
+  @@index([province_id])
+  @@map("wards")
+}
+

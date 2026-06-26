@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thêm Sản Phẩm Mới | Serene Seller</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#cfe5ff",
+                        "tertiary-container": "#d99000",
+                        "surface-dim": "#cddce7",
+                        "on-primary-fixed-variant": "#004a78",
+                        "surface-variant": "#d6e5ef",
+                        "surface": "#f5faff",
+                        "secondary-fixed-dim": "#94ccff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#825500",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001d34",
+                        "inverse-surface": "#24323a",
+                        "on-secondary-fixed": "#001d32",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e1f0fb",
+                        "inverse-on-surface": "#e4f3fe",
+                        "surface-container-low": "#e9f5ff",
+                        "secondary": "#006398",
+                        "primary-container": "#42a5f5",
+                        "on-tertiary-container": "#4d3000",
+                        "on-surface-variant": "#404751",
+                        "surface-tint": "#00629d",
+                        "surface-bright": "#f5faff",
+                        "on-secondary-container": "#004b75",
+                        "tertiary-fixed-dim": "#ffb952",
+                        "inverse-primary": "#99cbff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#cde5ff",
+                        "primary": "#00629d",
+                        "outline": "#707882",
+                        "on-surface": "#0f1d25",
+                        "surface-container-high": "#dbeaf5",
+                        "outline-variant": "#bfc7d3",
+                        "on-secondary-fixed-variant": "#004b74",
+                        "on-background": "#0f1d25",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d6e5ef",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#00395e",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-tertiary-fixed": "#291800",
+                        "background": "#f5faff",
+                        "secondary-container": "#6cbdfe",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#99cbff",
+                        "tertiary-fixed": "#ffddb4"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cfe5ff; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="w-64 h-screen fixed left-0 top-0 bg-blue-50 dark:bg-slate-950 flex flex-col p-4 z-50">
+<div class="mb-8 px-4">
+<h1 class="text-xl font-bold text-blue-900 dark:text-blue-100">Serene Seller</h1>
+<p class="text-xs text-slate-500 font-medium tracking-wide">Merchant Portal</p>
+</div>
+<nav class="flex-1 space-y-1 font-medium text-sm">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span> Orders
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg shadow-sm" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Products
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">layers</span> Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span> Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="mt-auto border-t border-blue-100/50 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-blue-100 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span> Help Center
+            </a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-white/80 backdrop-blur-md z-40 flex items-center justify-between px-8 shadow-sm">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Tìm kiếm tính năng hoặc sản phẩm..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-outline">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">chat_bubble</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">Go Live</button>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="ml-64 pt-24 pb-32 px-8">
+<div class="grid grid-cols-12 gap-8 max-w-screen-2xl mx-auto">
+<!-- Left Checklist (20%) -->
+<aside class="col-span-3">
+<div class="sticky top-24 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 border border-blue-100/50">
+<h3 class="text-on-surface font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">task_alt</span>
+                            Gợi ý điền thông tin
+                        </h3>
+<ul class="space-y-4">
+<li class="flex gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-[20px]">error</span>
+<span>Thêm ít nhất 3 hình ảnh sản phẩm chất lượng cao</span>
+</li>
+<li class="flex gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-[20px]">error</span>
+<span>Tên sản phẩm nên từ 25-100 kí tự để tối ưu tìm kiếm</span>
+</li>
+<li class="flex gap-3 text-sm text-on-surface-variant opacity-50">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Chọn đúng ngành hàng kinh doanh</span>
+</li>
+<li class="flex gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-outline text-[20px]">pending</span>
+<span>Mô tả sản phẩm chi tiết &amp; công dụng</span>
+</li>
+</ul>
+<div class="mt-6 pt-6 border-t border-outline-variant/20">
+<p class="text-xs text-outline font-medium">Độ hoàn thiện thông tin</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-2">
+<div class="bg-primary w-1/3 h-full rounded-full"></div>
+</div>
+<p class="text-[10px] text-primary mt-1 text-right font-bold">35%</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Middle Main Form (60%) -->
+<section class="col-span-6 space-y-8">
+<!-- Sticky Anchor Menu -->
+<nav class="sticky top-[4.5rem] z-30 flex gap-8 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-sm border border-surface-container-high mx-auto w-fit">
+<a class="px-4 py-2 rounded-full text-sm font-semibold bg-primary text-white shadow-md" href="#basic">Thông tin cơ bản</a>
+<a class="px-4 py-2 rounded-full text-sm font-medium text-outline hover:text-primary transition-colors" href="#desc">Mô tả</a>
+<a class="px-4 py-2 rounded-full text-sm font-medium text-outline hover:text-primary transition-colors" href="#sales">Bán hàng</a>
+<a class="px-4 py-2 rounded-full text-sm font-medium text-outline hover:text-primary transition-colors" href="#ship">Vận chuyển</a>
+</nav>
+<!-- Card 1: Basic Info -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm" id="basic">
+<div class="flex items-center gap-3 mb-8">
+<span class="w-2 h-8 bg-primary rounded-full"></span>
+<h2 class="text-xl font-bold">Thông tin cơ bản</h2>
+</div>
+<!-- Image Upload Grid -->
+<div class="space-y-4 mb-8">
+<label class="block text-sm font-semibold text-on-surface-variant">Hình ảnh sản phẩm <span class="text-error">*</span></label>
+<div class="grid grid-cols-5 gap-3">
+<div class="aspect-square border-2 border-dashed border-primary/30 bg-primary/5 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-primary/10 transition-colors group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">add_a_photo</span>
+<span class="text-[10px] text-primary font-bold">Thêm hình (0/9)</span>
+</div>
+<!-- Placeholders -->
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-outline-variant/20"></div>
+</div>
+<p class="text-[11px] text-outline italic">Kích thước tối thiểu 700x700px. Định dạng JPG, JPEG, PNG.</p>
+</div>
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div class="space-y-4">
+<label class="block text-sm font-semibold text-on-surface-variant">Ảnh bìa (Cover)</label>
+<div class="aspect-[4/3] bg-surface-container-low rounded-xl flex items-center justify-center border border-outline-variant/20 group cursor-pointer overflow-hidden relative">
+<span class="material-symbols-outlined text-outline">image</span>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-primary font-bold text-xs">Thay đổi ảnh bìa</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block text-sm font-semibold text-on-surface-variant">Video sản phẩm</label>
+<div class="aspect-[4/3] bg-surface-container-low rounded-xl flex items-center justify-center border border-outline-variant/20 group cursor-pointer overflow-hidden relative">
+<span class="material-symbols-outlined text-outline">videocam</span>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-primary font-bold text-xs">Tải lên Video</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="relative">
+<div class="flex justify-between mb-2">
+<label class="text-sm font-semibold text-on-surface-variant">Tên sản phẩm <span class="text-error">*</span></label>
+<span class="text-[11px] text-outline">0 / 120</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" placeholder="Nhập tên sản phẩm" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2">Ngành hàng <span class="text-error">*</span></label>
+<div class="relative group">
+<button class="w-full bg-surface-container-low text-left border-none rounded-xl px-4 py-3 text-sm text-outline/70 flex justify-between items-center group-hover:bg-surface-container transition-colors">
+                                    Thiết lập ngành hàng
+                                    <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Description -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm" id="desc">
+<div class="flex items-center gap-3 mb-8">
+<span class="w-2 h-8 bg-primary-container rounded-full"></span>
+<h2 class="text-xl font-bold">Mô tả sản phẩm</h2>
+</div>
+<div class="relative">
+<div class="flex justify-between mb-2">
+<label class="text-sm font-semibold text-on-surface-variant">Chi tiết sản phẩm <span class="text-error">*</span></label>
+<div class="flex gap-4">
+<button class="text-primary text-xs font-bold hover:underline">Sử dụng mẫu mô tả</button>
+<span class="text-[11px] text-outline">0 / 3000</span>
+</div>
+</div>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" placeholder="Hãy mô tả chi tiết về sản phẩm của bạn: chất liệu, công dụng, hướng dẫn sử dụng..." rows="10"></textarea>
+</div>
+</div>
+<!-- Card 3: Sales Info (Placeholder) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm" id="sales">
+<div class="flex items-center gap-3 mb-8">
+<span class="w-2 h-8 bg-secondary-container rounded-full"></span>
+<h2 class="text-xl font-bold">Thông tin bán hàng</h2>
+</div>
+<div class="h-48 border-2 border-dashed border-outline-variant/30 rounded-xl bg-surface-container-low flex items-center justify-center">
+<div class="text-center">
+<span class="material-symbols-outlined text-outline text-4xl mb-2">payments</span>
+<p class="text-sm text-outline font-medium">Đang thiết lập thông tin phân loại &amp; giá...</p>
+</div>
+</div>
+</div>
+<!-- Card 4: Shipping (Placeholder) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm" id="ship">
+<div class="flex items-center gap-3 mb-8">
+<span class="w-2 h-8 bg-tertiary-fixed-dim rounded-full"></span>
+<h2 class="text-xl font-bold">Vận chuyển</h2>
+</div>
+<div class="h-32 border-2 border-dashed border-outline-variant/30 rounded-xl bg-surface-container-low flex items-center justify-center">
+<div class="text-center">
+<span class="material-symbols-outlined text-outline text-4xl mb-2">local_shipping</span>
+<p class="text-sm text-outline font-medium">Thiết lập cân nặng &amp; đơn vị vận chuyển...</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Live Preview (20%) -->
+<aside class="col-span-3">
+<div class="sticky top-24">
+<div class="text-center mb-4">
+<h3 class="font-bold text-on-surface flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary">visibility</span>
+                            Xem trước hiển thị
+                        </h3>
+<p class="text-[10px] text-outline mt-1 uppercase tracking-widest font-bold">Mobile View</p>
+</div>
+<!-- Mobile Frame -->
+<div class="relative mx-auto border-[8px] border-slate-800 rounded-[2.5rem] w-[240px] h-[480px] bg-white shadow-2xl overflow-hidden">
+<div class="absolute top-0 w-full h-4 bg-slate-800 flex justify-center items-end pb-1">
+<div class="w-16 h-2 bg-slate-900 rounded-full"></div>
+</div>
+<div class="h-full flex flex-col pt-4 overflow-y-auto custom-scrollbar">
+<!-- Product Image Preview -->
+<div class="w-full aspect-square bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="minimalist modern watch design with white leather strap and clean silver dial on a soft neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAno4Jj4YTCUizcgcIdlyTrIOGcywVY4uao8YGLpH-Ebngl5VK9F7P4Ut-CRQJi0aJmsVib9pvAaj9QsESMCvJx6DhR1GPc9ERHfWovhOfukYvIn-inUHnBQ9ImFRk1FM1lBZZYzYoKb-C70jm8yC4zUwP4i4whswd8DJqV-22stljEvvoTPsLApCN1ElNxctwBL-L6LGxKl_yUo0QkNc5MhQ9EgvJ0FdskKDGY2s6M-MxcN7i1uCiA3sVYp6bpFr291UN1A1jMFrA"/>
+<div class="absolute bottom-2 right-2 bg-black/50 text-white text-[10px] px-2 py-0.5 rounded-full">1/5</div>
+</div>
+<!-- Product Info Preview -->
+<div class="p-4 space-y-2">
+<div class="flex items-center gap-1 text-[10px] text-primary font-bold">
+<span class="material-symbols-outlined text-[12px]">verified</span> Thương hiệu chính hãng
+                                </div>
+<h4 class="text-xs font-bold line-clamp-2">Tên sản phẩm của bạn sẽ hiển thị tại đây trên hai dòng...</h4>
+<div class="flex items-baseline gap-2">
+<span class="text-primary font-bold text-sm">₫ 0.000</span>
+<span class="text-outline text-[10px] line-through">₫ 0.000</span>
+</div>
+<div class="flex items-center gap-1 mt-4 p-2 bg-surface-container-low rounded-lg">
+<div class="w-6 h-6 rounded-full bg-primary-fixed"></div>
+<div class="flex-1">
+<p class="text-[9px] font-bold">Serene Boutique</p>
+<p class="text-[7px] text-outline">Đang hoạt động</p>
+</div>
+<button class="px-2 py-0.5 border border-primary text-primary text-[8px] font-bold rounded">Xem shop</button>
+</div>
+</div>
+<!-- Mobile Footer -->
+<div class="mt-auto border-t border-surface-container p-2 flex gap-2">
+<div class="flex-1 h-8 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-lg">chat</span>
+</div>
+<div class="flex-[2] h-8 rounded-lg bg-secondary-container text-white text-[10px] font-bold flex items-center justify-center">
+                                    Thêm vào giỏ
+                                </div>
+<div class="flex-[2] h-8 rounded-lg bg-primary text-white text-[10px] font-bold flex items-center justify-center">
+                                    Mua ngay
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Sticky Bottom Bar -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] bg-white/95 backdrop-blur-md border-t border-surface-container shadow-[0_-4px_20px_rgba(0,0,0,0.03)] z-50 px-8 py-4">
+<div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-2 text-outline text-xs">
+<span class="material-symbols-outlined">info</span>
+                Lưu nháp để hoàn thiện sau nếu bạn chưa sẵn sàng.
+            </div>
+<div class="flex items-center gap-4">
+<button class="px-8 py-2.5 rounded-full text-sm font-semibold text-outline hover:bg-surface-container-low transition-colors">Hủy</button>
+<button class="px-8 py-2.5 rounded-full text-sm font-semibold border-2 border-primary/20 text-primary hover:bg-primary/5 transition-colors">Lưu &amp; Ẩn</button>
+<button class="px-10 py-2.5 rounded-full text-sm font-bold bg-primary-container text-white shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">Lưu &amp; Hiển thị</button>
+</div>
+</div>
+</footer>
+</body></html>

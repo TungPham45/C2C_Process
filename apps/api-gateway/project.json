@@ -1,0 +1,27 @@
+{
+  "name": "api-gateway",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/api-gateway",
+  "sourceRoot": "apps/api-gateway/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/api-gateway/src/main.ts",
+        "outputPath": "dist/apps/api-gateway",
+        "tsConfig": "apps/api-gateway/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "api-gateway:build",
+        "inspect": false
+      }
+    }
+  }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Center - Product Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#cfe5ff",
+                        "tertiary-container": "#d99000",
+                        "surface-dim": "#cddce7",
+                        "on-primary-fixed-variant": "#004a78",
+                        "surface-variant": "#d6e5ef",
+                        "surface": "#f5faff",
+                        "secondary-fixed-dim": "#94ccff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#825500",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001d34",
+                        "inverse-surface": "#24323a",
+                        "on-secondary-fixed": "#001d32",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e1f0fb",
+                        "inverse-on-surface": "#e4f3fe",
+                        "surface-container-low": "#e9f5ff",
+                        "secondary": "#006398",
+                        "primary-container": "#42a5f5",
+                        "on-tertiary-container": "#4d3000",
+                        "on-surface-variant": "#404751",
+                        "surface-tint": "#00629d",
+                        "surface-bright": "#f5faff",
+                        "on-secondary-container": "#004b75",
+                        "tertiary-fixed-dim": "#ffb952",
+                        "inverse-primary": "#99cbff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#cde5ff",
+                        "primary": "#00629d",
+                        "outline": "#707882",
+                        "on-surface": "#0f1d25",
+                        "surface-container-high": "#dbeaf5",
+                        "outline-variant": "#bfc7d3",
+                        "on-secondary-fixed-variant": "#004b74",
+                        "on-background": "#0f1d25",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d6e5ef",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#00395e",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-tertiary-fixed": "#291800",
+                        "background": "#f5faff",
+                        "secondary-container": "#6cbdfe",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#99cbff",
+                        "tertiary-fixed": "#ffddb4"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5faff;
+            color: #0f1d25;
+        }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="w-64 h-screen fixed left-0 top-0 border-r-0 bg-blue-50 dark:bg-slate-950 flex flex-col p-4 z-50">
+<div class="mb-8 px-4">
+<h1 class="text-xl font-bold text-blue-900 dark:text-blue-100 font-headline">Serene Seller</h1>
+<p class="text-xs text-slate-500 font-medium">Merchant Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 font-plus-jakarta text-sm font-medium transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 font-plus-jakarta text-sm font-medium transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Orders</span>
+</a>
+<!-- Active Tab: Products -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg shadow-sm font-plus-jakarta text-sm font-medium transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 font-plus-jakarta text-sm font-medium transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 font-plus-jakarta text-sm font-medium transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 font-plus-jakarta text-sm font-medium transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-blue-100/50 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-blue-100/50 dark:hover:bg-slate-900/50 font-plus-jakarta text-sm font-medium transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-between px-8 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all outline-none" placeholder="Tìm kiếm sản phẩm hoặc SKU..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-outline">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span></button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<button class="px-5 py-2 bg-gradient-to-br from-primary to-primary-container text-white rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition-all">Go Live</button>
+<div class="flex items-center gap-2">
+<img alt="Merchant Profile" class="w-8 h-8 rounded-full border border-surface-container-high" data-alt="professional portrait of a confident business person for a profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDozEe2wOOoTeDQvwaPkGNL2Ilizd2_s036lZTKjQMuKaRPMIkFn0xTPT7xECjo1LUKjkkx245zMTrdvBbhkRkHAjOzZbQYca3ZucFUpvAR3uSDJ_jg6f0-4n-12Tv3evAfkE9BVBjkJyEPGuOYtyhcqTydehHrOMe13EqX3huC7_1Ppq16SxH8fBRdLd6zcin7IXunnQH0oxcYgKdt3cVMtwDHzfwKFyl0JshGohqMz7iWFCt_Aw7TLGeEK7Q-Fjj4zo8zRVAzdxw"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="pt-24 px-8 pb-12">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-extrabold font-headline tracking-tight text-on-surface">Quản lý sản phẩm</h2>
+<p class="text-on-surface-variant mt-1">Cập nhật và tối ưu hóa danh mục sản phẩm của bạn</p>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 bg-primary-container text-on-primary-container rounded-full font-bold shadow-lg shadow-primary-container/20 hover:scale-[1.02] transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Thêm 1 sản phẩm mới
+                </button>
+</div>
+<!-- Gradient Banner -->
+<div class="mb-8 p-6 rounded-2xl bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200/50 flex items-center justify-between relative overflow-hidden">
+<div class="relative z-10">
+<span class="inline-block px-3 py-1 bg-white/80 rounded-full text-[10px] font-bold text-primary mb-2 tracking-wider">MỚI</span>
+<h3 class="text-lg font-bold text-on-surface">Tối ưu hóa hình ảnh bằng AI</h3>
+<p class="text-sm text-on-surface-variant max-w-md">Công cụ mới giúp bạn tự động tách nền và cải thiện độ sáng sản phẩm chỉ với một lần nhấn.</p>
+</div>
+<button class="relative z-10 px-4 py-2 bg-white text-primary text-sm font-bold rounded-lg shadow-sm border border-primary/10 hover:bg-surface-container transition-colors">Thử ngay</button>
+<div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-blue-200/40 to-transparent"></div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl text-blue-200/30 rotate-12" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<!-- Status Tabs -->
+<div class="flex gap-8 border-b border-transparent mb-6 overflow-x-auto scrollbar-hide">
+<button class="pb-3 border-b-2 border-primary text-primary font-bold text-base whitespace-nowrap">Tất cả (124)</button>
+<button class="pb-3 border-b-2 border-transparent text-outline hover:text-on-surface-variant font-medium text-base transition-all whitespace-nowrap">Đang hoạt động (112)</button>
+<button class="pb-3 border-b-2 border-transparent text-outline hover:text-on-surface-variant font-medium text-base transition-all whitespace-nowrap">Vi phạm (2)</button>
+<button class="pb-3 border-b-2 border-transparent text-outline hover:text-on-surface-variant font-medium text-base transition-all whitespace-nowrap">Chờ duyệt bởi Admin (8)</button>
+<button class="pb-3 border-b-2 border-transparent text-outline hover:text-on-surface-variant font-medium text-base transition-all whitespace-nowrap">Chưa được đăng (2)</button>
+</div>
+<!-- Filters & Sub-tabs -->
+<div class="bg-surface-container-low rounded-3xl p-6 mb-6">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-2 p-1 bg-surface-container rounded-xl">
+<button class="px-4 py-2 bg-surface-container-lowest text-primary text-sm font-bold rounded-lg shadow-sm">Tất cả</button>
+<button class="px-4 py-2 text-outline hover:text-on-surface-variant text-sm font-medium transition-colors">Cần bổ sung hàng</button>
+</div>
+<div class="flex items-center gap-4 flex-1 justify-end">
+<div class="relative w-64">
+<input class="w-full pl-4 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant/20 rounded-xl text-sm outline-none focus:ring-2 focus:ring-primary/20" placeholder="Tên sản phẩm / SKU" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+</div>
+<div class="relative min-w-[180px]">
+<select class="w-full appearance-none pl-4 pr-10 py-2.5 bg-surface-container-lowest border border-outline-variant/20 rounded-xl text-sm outline-none cursor-pointer focus:ring-2 focus:ring-primary/20">
+<option>Tất cả danh mục</option>
+<option>Thời trang</option>
+<option>Điện tử</option>
+<option>Gia dụng</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<button class="p-2.5 bg-surface-container-lowest border border-outline-variant/20 rounded-xl hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-outline" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Table (Asymmetric Card Layout) -->
+<div class="space-y-4">
+<!-- Table Header -->
+<div class="grid grid-cols-[auto_1fr_120px_120px_140px_140px_120px] items-center px-6 text-xs font-bold text-outline tracking-wider uppercase">
+<div class="pr-6"><input class="rounded text-primary focus:ring-primary" type="checkbox"/></div>
+<div>Tên sản phẩm</div>
+<div class="text-center">Giá</div>
+<div class="text-center">Kho hàng</div>
+<div class="text-center">Hiệu suất</div>
+<div class="text-center">Đánh giá</div>
+<div class="text-right">Thao tác</div>
+</div>
+<!-- Product Row 1 -->
+<div class="grid grid-cols-[auto_1fr_120px_120px_140px_140px_120px] items-center bg-surface-container-lowest hover:bg-surface-bright p-4 rounded-3xl transition-all hover:scale-[1.005] group">
+<div class="pr-6"><input class="rounded text-primary focus:ring-primary" type="checkbox"/></div>
+<div class="flex items-center gap-4">
+<img alt="Product Thumbnail" class="w-16 h-16 rounded-2xl object-cover bg-surface-container shadow-sm" data-alt="close-up of a vibrant red running shoe against a minimalist clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOH_MGUsZNKcyzRgkzN4rYHRXhrJXu5vYqNF9VyNLkvLZsAAGCJQgdRm0-i5aF25Tpo-iUG59wtnIbhXIlJAVf5gMl2o0K8ea5txthfL68Re-P-3w0ytZSqC9Nug9SdbRc0m4gGRyAFdTTa-SU1KojjifhenIa2EGCFUKJ3qfUPgC9aA7dRCOTJaU-EcsUAVvM8O5d8nxPBwugCMFGiineMdu_LOT2J1OFfdu0IcOau5mVJ8-1VjTHEatJWO4iQbYsDeV8oYxguHU"/>
+<div>
+<h4 class="font-bold text-on-surface text-sm line-clamp-1">Giày Chạy Bộ Performance X-200</h4>
+<p class="text-[10px] text-outline mt-1 font-mono">SKU: FW-2023-RED-42</p>
+<span class="inline-block mt-1 px-2 py-0.5 bg-blue-50 text-primary text-[10px] font-bold rounded">Thời trang</span>
+</div>
+</div>
+<div class="text-center font-bold text-on-surface text-sm">1.250.000đ</div>
+<div class="text-center">
+<span class="text-sm font-medium text-on-surface">42</span>
+<div class="w-12 h-1 bg-surface-container rounded-full mx-auto mt-2 overflow-hidden">
+<div class="w-3/4 h-full bg-secondary-container rounded-full"></div>
+</div>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center gap-1 text-green-600 font-bold text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                            +12%
+                        </div>
+<p class="text-[10px] text-outline">Lượt xem: 2.4k</p>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center gap-0.5 text-yellow-500">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-on-surface">4.8</span>
+</div>
+<p class="text-[10px] text-outline">(128 đánh giá)</p>
+</div>
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Chỉnh sửa"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error hover:bg-error/10 rounded-lg transition-colors" title="Xóa"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+<button class="p-2 text-outline hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors" title="Ẩn"><span class="material-symbols-outlined text-xl" data-icon="visibility_off">visibility_off</span></button>
+</div>
+</div>
+<!-- Product Row 2 -->
+<div class="grid grid-cols-[auto_1fr_120px_120px_140px_140px_120px] items-center bg-surface-container-lowest hover:bg-surface-bright p-4 rounded-3xl transition-all hover:scale-[1.005] group">
+<div class="pr-6"><input class="rounded text-primary focus:ring-primary" type="checkbox"/></div>
+<div class="flex items-center gap-4">
+<img alt="Product Thumbnail" class="w-16 h-16 rounded-2xl object-cover bg-surface-container shadow-sm" data-alt="professional studio shot of high-end wireless over-ear headphones in charcoal grey on a tonal background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm9DUSwcvQVgyZpxWHchoNUx4I6iOnYgEcvuc29_jhWLY9iNujpoW1c82cSBW0LRoR9F-bTCmqxU7Uin__T3npNm9KnYBMy6As6KlG_cmoKdJuk0ypZ5OcEm_tdiEOCRBnawCpZuh8p-q1l3ADCKK-lUDcHXZQW6E6rbRQQ_tcH6c2tdPJu7habggMP7JFmfWJSsVdSD65BLl53BcnyYe4vPuBchTn8kNBHDRCDPbFI2MPIEeNqVhAU7YSqRCwioEm4R-nBd7Xr4Q"/>
+<div>
+<h4 class="font-bold text-on-surface text-sm line-clamp-1">Tai Nghe Bluetooth Pro Sound ANC</h4>
+<p class="text-[10px] text-outline mt-1 font-mono">SKU: EL-HEAD-BT-99</p>
+<span class="inline-block mt-1 px-2 py-0.5 bg-blue-50 text-primary text-[10px] font-bold rounded">Điện tử</span>
+</div>
+</div>
+<div class="text-center font-bold text-on-surface text-sm">3.890.000đ</div>
+<div class="text-center">
+<span class="text-sm font-medium text-error">Low: 5</span>
+<div class="w-12 h-1 bg-surface-container rounded-full mx-auto mt-2 overflow-hidden">
+<div class="w-1/5 h-full bg-error rounded-full"></div>
+</div>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center gap-1 text-on-surface-variant font-bold text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="horizontal_rule">horizontal_rule</span>
+                            0%
+                        </div>
+<p class="text-[10px] text-outline">Lượt xem: 850</p>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center gap-0.5 text-yellow-500">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-on-surface">4.5</span>
+</div>
+<p class="text-[10px] text-outline">(42 đánh giá)</p>
+</div>
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Chỉnh sửa"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error hover:bg-error/10 rounded-lg transition-colors" title="Xóa"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+<button class="p-2 text-outline hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors" title="Ẩn"><span class="material-symbols-outlined text-xl" data-icon="visibility_off">visibility_off</span></button>
+</div>
+</div>
+<!-- Product Row 3 (Pending State) -->
+<div class="grid grid-cols-[auto_1fr_120px_120px_140px_140px_120px] items-center bg-surface-container-low/50 hover:bg-surface-bright p-4 rounded-3xl transition-all border border-dashed border-outline-variant/30 group">
+<div class="pr-6"><input class="rounded text-primary focus:ring-primary" type="checkbox"/></div>
+<div class="flex items-center gap-4 opacity-70">
+<img alt="Product Thumbnail" class="w-16 h-16 rounded-2xl object-cover bg-surface-container shadow-sm grayscale" data-alt="aesthetic minimalist lifestyle shot of a modern analog watch on a clean neutral fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbvgqIBsyWojKyR3Md7DC6v-ZwVSxHMMo79CljqY8F9zcLMipdNCFe68LgI3JVdaXlQfUo8xwSczgzf6roZh-IZpNJvC37h1OrKBD89mFSFi0TZsDhEbduAjRmLkEvQaljYpySnsZ1fs-t9iTewmTGcNQier_RANLVEsq8Lz75KYiqFaPPYKl_qJnThAmnA1avCjBbjNJaoYgsEKvuUvEz3_WVnL-eC0wQx1sC2FUw6NhuY7JUhOhii1tI-01Wd-Je6Z3ITI16MB4"/>
+<div>
+<h4 class="font-bold text-on-surface text-sm line-clamp-1">Đồng Hồ Thông Minh Serene Watch v1</h4>
+<p class="text-[10px] text-outline mt-1 font-mono">SKU: WT-2024-SV-01</p>
+<span class="inline-block mt-1 px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold rounded">Chờ duyệt</span>
+</div>
+</div>
+<div class="text-center font-bold text-on-surface text-sm opacity-70">4.500.000đ</div>
+<div class="text-center opacity-70">
+<span class="text-sm font-medium text-on-surface">100</span>
+</div>
+<div class="text-center italic text-outline text-[10px]">Đang kiểm duyệt...</div>
+<div class="text-center">—</div>
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/10 rounded-lg transition-colors"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error hover:bg-error/10 rounded-lg transition-colors"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Pagination (Floating Pilled Logic) -->
+<div class="mt-12 flex justify-center">
+<nav class="flex items-center gap-1 bg-surface-container-lowest p-2 rounded-full shadow-sm border border-outline-variant/10">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white font-bold text-sm shadow-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-outline hover:bg-surface-container font-medium text-sm transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-outline hover:bg-surface-container font-medium text-sm transition-colors">3</button>
+<div class="w-10 h-10 flex items-center justify-center text-outline font-medium">...</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-outline hover:bg-surface-container font-medium text-sm transition-colors">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</main>
+<!-- FAB for quick action (Suppressed on details but active here) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</button>
+</body></html>

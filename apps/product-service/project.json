@@ -1,0 +1,27 @@
+{
+  "name": "product-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/product-service",
+  "sourceRoot": "apps/product-service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/product-service/src/main.ts",
+        "outputPath": "dist/apps/product-service",
+        "tsConfig": "apps/product-service/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "product-service:build",
+        "inspect": false
+      }
+    }
+  }
+}

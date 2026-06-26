@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../node_modules/@prisma/client/chat"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:123456@postgres:5432/chat_db"
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model conversations {
+  id                   Int        @id @default(autoincrement())
+  buyer_id             Int
+  seller_id            Int
+  shop_id              Int
+  status               String?    @default("active") @db.VarChar(50)
+  last_message_preview String?
+  updated_at           DateTime?  @default(now()) @db.Timestamp(6)
+  unread_count_buyer   Int?       @default(0)
+  unread_count_seller  Int?       @default(0)
+  messages             messages[]
+
+  @@unique([buyer_id, shop_id], map: "uq_buyer_shop")
+  @@index([buyer_id, shop_id], map: "idx_conversations_buyer_shop")
+  @@index([seller_id], map: "idx_conversations_seller_id")
+  @@index([updated_at], map: "idx_conversations_updated_at")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model messages {
+  id              Int           @id @default(autoincrement())
+  conversation_id Int
+  sender_id       Int
+  sender_role     String        @db.VarChar(20)
+  message_type    String?       @default("text") @db.VarChar(30)
+  content         String
+  is_edited       Boolean?      @default(false)
+  updated_at      DateTime?     @db.Timestamp(6)
+  edit_history    Json?         @default("[]")
+  sent_at         DateTime?     @default(now()) @db.Timestamp(6)
+  is_read         Boolean?      @default(false)
+  conversations   conversations @relation(fields: [conversation_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_messages_conversation")
+
+  @@index([conversation_id], map: "idx_messages_conversation_id")
+  @@index([sender_id], map: "idx_messages_sender_id")
+  @@index([sent_at], map: "idx_messages_sent_at")
+}

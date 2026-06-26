@@ -1,0 +1,9 @@
+.git
+.nx
+.vscode
+dist
+node_modules
+tmp
+prototypes
+*.log
+

@@ -1,0 +1,27 @@
+{
+  "name": "chat-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/chat-service",
+  "sourceRoot": "apps/chat-service/src",
+  "projectType": "application",
+  "tags": ["type:app", "scope:chat"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/chat-service/src/main.ts",
+        "outputPath": "dist/apps/chat-service",
+        "tsConfig": "apps/chat-service/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "chat-service:build",
+        "inspect": false
+      }
+    }
+  }
+}

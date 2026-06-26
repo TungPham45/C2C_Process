@@ -1,0 +1,27 @@
+{
+  "name": "admin-moderation-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/admin-moderation-service",
+  "sourceRoot": "apps/admin-moderation-service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/admin-moderation-service/src/main.ts",
+        "outputPath": "dist/apps/admin-moderation-service",
+        "tsConfig": "apps/admin-moderation-service/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "admin-moderation-service:build",
+        "inspect": false
+      }
+    }
+  }
+}
