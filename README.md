@@ -1,4 +1,4 @@
-# Nền tảng C2C (C2C Platform)
+# Nền tảng C2C (C2C Platform) - HELLOOADDKDWJ
 
 Kho lưu trữ (repo) này là một Nx monorepo cho nền tảng demo C2C.
 
