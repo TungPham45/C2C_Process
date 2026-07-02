@@ -1,0 +1,297 @@
+c2c-platform
+|-- .git
+|-- .nx
+|-- .vscode
+|   |-- extensions.json
+|   `-- launch.json
+|-- apps
+|   |-- admin-moderation-service
+|   |   |-- src
+|   |   |   |-- app
+|   |   |   |   |-- admin.controller.ts
+|   |   |   |   |-- admin.dto.ts
+|   |   |   |   |-- admin.service.ts
+|   |   |   |   |-- app.module.ts
+|   |   |   |   |-- prisma.service.ts
+|   |   |   |   |-- report.controller.ts
+|   |   |   |   `-- report.service.ts
+|   |   |   `-- main.ts
+|   |   |-- project.json
+|   |   `-- tsconfig.json
+|   |-- api-gateway
+|   |   |-- src
+|   |   |   |-- app
+|   |   |   |   |-- app.module.ts
+|   |   |   |   `-- reverse-proxy.ts
+|   |   |   `-- main.ts
+|   |   |-- project.json
+|   |   `-- tsconfig.json
+|   |-- auth-service
+|   |   |-- src
+|   |   |   |-- app
+|   |   |   |   |-- app.module.ts
+|   |   |   |   |-- auth.controller.ts
+|   |   |   |   |-- auth.service.ts
+|   |   |   |   |-- email.service.ts
+|   |   |   |   |-- notifications.controller.ts
+|   |   |   |   |-- notifications.service.ts
+|   |   |   |   `-- prisma.service.ts
+|   |   |   `-- main.ts
+|   |   |-- .env
+|   |   |-- project.json
+|   |   `-- tsconfig.json
+|   |-- chat-service
+|   |   |-- src
+|   |   |   |-- app
+|   |   |   |   |-- app.controller.ts
+|   |   |   |   |-- app.module.ts
+|   |   |   |   |-- app.service.ts
+|   |   |   |   `-- prisma.service.ts
+|   |   |   |-- assets
+|   |   |   |   `-- .gitkeep
+|   |   |   `-- main.ts
+|   |   |-- project.json
+|   |   |-- tsconfig.app.json
+|   |   |-- tsconfig.json
+|   |   `-- webpack.config.js
+|   |-- chat-service-e2e
+|   |   |-- src
+|   |   |   |-- chat-service
+|   |   |   |   `-- chat-service.spec.ts
+|   |   |   `-- support
+|   |   |       |-- global-setup.ts
+|   |   |       |-- global-teardown.ts
+|   |   |       `-- test-setup.ts
+|   |   |-- jest.config.cts
+|   |   |-- project.json
+|   |   |-- tsconfig.json
+|   |   `-- tsconfig.spec.json
+|   |-- order-service
+|   |   |-- src
+|   |   |   |-- app
+|   |   |   |   |-- app.module.ts
+|   |   |   |   |-- auth-prisma.service.ts
+|   |   |   |   |-- cart.controller.ts
+|   |   |   |   |-- cart.service.ts
+|   |   |   |   |-- extracted_method.ts
+|   |   |   |   |-- notification-client.service.ts
+|   |   |   |   |-- order.controller.ts
+|   |   |   |   |-- order.service.ts
+|   |   |   |   |-- prisma.service.ts
+|   |   |   |   |-- product-prisma.service.ts
+|   |   |   |   |-- voucher.controller.ts
+|   |   |   |   `-- voucher.service.ts
+|   |   |   `-- main.ts
+|   |   |-- project.json
+|   |   `-- tsconfig.json
+|   |-- product-service
+|   |   |-- src
+|   |   |   |-- app
+|   |   |   |   |-- app.module.ts
+|   |   |   |   |-- prisma.service.ts
+|   |   |   |   |-- product.controller.ts
+|   |   |   |   `-- product.service.ts
+|   |   |   `-- main.ts
+|   |   |-- project.json
+|   |   `-- tsconfig.json
+|   `-- web
+|       |-- public
+|       |-- src
+|       |   |-- app
+|       |   |   |-- app.module.css
+|       |   |   |-- app.tsx
+|       |   |   `-- nx-welcome.tsx
+|       |   |-- assets
+|       |   |   `-- .gitkeep
+|       |   |-- components
+|       |   |   |-- auth
+|       |   |   |   |-- AdminProtectedRoute.tsx
+|       |   |   |   |-- BuyerProtectedRoute.tsx
+|       |   |   |   `-- SellerProtectedRoute.tsx
+|       |   |   |-- home
+|       |   |   |   |-- CategoryNavigation.tsx
+|       |   |   |   |-- HomeHero.tsx
+|       |   |   |   |-- ProductFeed.tsx
+|       |   |   |   `-- VoucherSection.tsx
+|       |   |   |-- layout
+|       |   |   |   |-- AdminLayout.tsx
+|       |   |   |   |-- MarketplaceLayout.tsx
+|       |   |   |   |-- NotificationBell.tsx
+|       |   |   |   |-- SearchBar.tsx
+|       |   |   |   `-- SellerLayout.tsx
+|       |   |   |-- products
+|       |   |   |   |-- CategorySelector.tsx
+|       |   |   |   |-- DynamicAttributes.tsx
+|       |   |   |   |-- ManageCategoryProductsModal.tsx
+|       |   |   |   `-- VariantBuilder.tsx
+|       |   |   |-- shared
+|       |   |   |   `-- ReportModal.tsx
+|       |   |   |-- ui
+|       |   |   |   `-- Select.tsx
+|       |   |   `-- vouchers
+|       |   |       `-- VoucherCard.tsx
+|       |   |-- config
+|       |   |   `-- api.ts
+|       |   |-- hooks
+|       |   |   |-- useCart.ts
+|       |   |   |-- useOrders.ts
+|       |   |   |-- useProducts.ts
+|       |   |   `-- useReviews.ts
+|       |   |-- pages
+|       |   |   |-- admin
+|       |   |   |   |-- VoucherManagement
+|       |   |   |   |   `-- VoucherList.tsx
+|       |   |   |   |-- AccountManagement.tsx
+|       |   |   |   |-- AdminDashboard.tsx
+|       |   |   |   |-- BannersAdminPage.tsx
+|       |   |   |   |-- CategoryManagement.tsx
+|       |   |   |   |-- ProductModeration.tsx
+|       |   |   |   |-- ReportModeration.tsx
+|       |   |   |   |-- ShopManagement.tsx
+|       |   |   |   |-- ShopModeration.tsx
+|       |   |   |   |-- ShopSalesAnalytics.tsx
+|       |   |   |   `-- UserAnalytics.tsx
+|       |   |   |-- auth
+|       |   |   |   |-- AuthPage.tsx
+|       |   |   |   `-- Login.tsx
+|       |   |   |-- seller
+|       |   |   |   |-- AddProduct.tsx
+|       |   |   |   |-- Analytics.tsx
+|       |   |   |   |-- CreateVoucher.tsx
+|       |   |   |   |-- EditProduct.tsx
+|       |   |   |   |-- EditVoucher.tsx
+|       |   |   |   |-- Inventory.tsx
+|       |   |   |   |-- OrderDetail.tsx
+|       |   |   |   |-- OrderManagement.tsx
+|       |   |   |   |-- ProductManagement.tsx
+|       |   |   |   |-- Reviews.tsx
+|       |   |   |   |-- SellerCenter.tsx
+|       |   |   |   |-- SellerChat.tsx
+|       |   |   |   |-- SellerRegistration.tsx
+|       |   |   |   |-- Settings.tsx
+|       |   |   |   |-- ShopCategories.tsx
+|       |   |   |   |-- VoucherManagement.tsx
+|       |   |   |   `-- vouchers.ts
+|       |   |   |-- BuyerOrderDetail.tsx
+|       |   |   |-- CartPage.tsx
+|       |   |   |-- CheckoutPage.tsx
+|       |   |   |-- MarketplaceHomePage.tsx
+|       |   |   |-- MessagesPage.tsx
+|       |   |   |-- MyPurchases.tsx
+|       |   |   |-- OrderSuccess.tsx
+|       |   |   |-- ProductDetail.tsx
+|       |   |   |-- ProductsPage.tsx
+|       |   |   |-- ProfilePage.tsx
+|       |   |   |-- ShopPage.tsx
+|       |   |   `-- VoucherHub.tsx
+|       |   |-- utils
+|       |   |   |-- currency.ts
+|       |   |   `-- orderPricing.ts
+|       |   |-- main.tsx
+|       |   `-- styles.css
+|       |-- index.html
+|       |-- postcss.config.js
+|       |-- project.json
+|       |-- tailwind.config.js
+|       |-- tsconfig.app.json
+|       |-- tsconfig.json
+|       `-- vite.config.mts
+|-- db
+|   `-- seeds
+|       |-- admin_mod_db.sql
+|       |-- auth_db.sql
+|       |-- chat_db.sql
+|       `-- product_db.sql
+|-- dist
+|-- docker
+|   |-- pgadmin
+|   |   |-- pgpass
+|   |   `-- servers.json
+|   |-- backend.Dockerfile
+|   `-- web.Dockerfile
+|-- libs
+|   `-- prisma-clients
+|       |-- admin-mod-client
+|       |   |-- migrations
+|       |   |   |-- 20260405_init_admin_mod_db
+|       |   |   |   `-- migration.sql
+|       |   |   `-- 20260405_sync_live_admin_mod_db
+|       |   |       `-- migration.sql
+|       |   `-- schema.prisma
+|       |-- auth-client
+|       |   |-- migrations
+|       |   |   |-- 20260405_init_auth_db
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260405_sync_live_auth_db
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260408070528_add_verification_code
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260414110500_add_first_order_at
+|       |   |   |   `-- migration.sql
+|       |   |   `-- migration_lock.toml
+|       |   `-- schema.prisma
+|       |-- chat-client
+|       |   |-- migrations
+|       |   |   |-- 20260405_init_chat_db
+|       |   |   |   `-- migration.sql
+|       |   |   `-- 20260405_sync_live_chat_db
+|       |   |       `-- migration.sql
+|       |   `-- schema.prisma
+|       |-- order-client
+|       |   |-- migrations
+|       |   |   |-- 20260405_init_order_db
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260405_sync_live_order_db
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260414094500_add_voucher_target_type
+|       |   |   |   `-- migration.sql
+|       |   |   `-- 20260414111000_allow_multiple_claims_per_user
+|       |   |       `-- migration.sql
+|       |   `-- schema.prisma
+|       |-- product-client
+|       |   |-- migrations
+|       |   |   |-- 20260405_init_product_db
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260405_sync_live_product_db
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260408042828_add_moderation_note
+|       |   |   |   `-- migration.sql
+|       |   |   |-- 20260414143000_add_shop_follows
+|       |   |   |   `-- migration.sql
+|       |   |   `-- migration_lock.toml
+|       |   `-- schema.prisma
+|       `-- project.json
+|-- node_modules
+|-- prototypes
+|   |-- add_product.html
+|   |-- product_mgmt.html
+|   `-- seller_center.html
+|-- public
+|-- scripts
+|   |-- run-local-stack.ps1
+|   |-- seed-report-reasons.mjs
+|   |-- setup.mjs
+|   `-- sync-db-schema.mjs
+|-- tmp
+|-- .dockerignore
+|-- .editorconfig
+|-- .gitattributes
+|-- .gitignore
+|-- .prettierignore
+|-- .prettierrc
+|-- architecture_pattern.md
+|-- debug.log
+|-- design_pattern.md
+|-- docker-compose.yml
+|-- faults.md
+|-- fix_seller_orders.js
+|-- guide.md
+|-- init-multiple-db.sh
+|-- ngrok.exe
+|-- nx.json
+|-- otp_simulation.log
+|-- package-lock.json
+|-- package.json
+|-- README.md
+|-- sellerr.ts
+`-- tsconfig.base.json

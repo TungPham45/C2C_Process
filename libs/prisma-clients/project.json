@@ -1,0 +1,23 @@
+{
+  "name": "prisma-clients",
+  "root": "libs/prisma-clients",
+  "targets": {
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx prisma generate --schema=libs/prisma-clients/auth-client/schema.prisma",
+          "npx prisma generate --schema=libs/prisma-clients/product-client/schema.prisma",
+          "npx prisma generate --schema=libs/prisma-clients/order-client/schema.prisma",
+          "npx prisma generate --schema=libs/prisma-clients/chat-client/schema.prisma",
+          "npx prisma generate --schema=libs/prisma-clients/admin-mod-client/schema.prisma"
+        ],
+        "parallel": false
+      },
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/**/*.prisma"
+      ]
+    }
+  }
+}

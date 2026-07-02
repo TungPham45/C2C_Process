@@ -1,0 +1,6 @@
+# Force Unix LF line endings for shell scripts used in Docker
+init-multiple-db.sh text eol=lf
+*.sh text eol=lf
+
+# Standard text files
+* text=auto

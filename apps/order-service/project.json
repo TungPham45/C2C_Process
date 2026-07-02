@@ -1,0 +1,27 @@
+{
+  "name": "order-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/order-service",
+  "sourceRoot": "apps/order-service/src",
+  "projectType": "application",
+  "tags": ["type:app", "scope:order"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/order-service/src/main.ts",
+        "outputPath": "dist/apps/order-service",
+        "tsConfig": "apps/order-service/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "order-service:build",
+        "inspect": false
+      }
+    }
+  }
+}

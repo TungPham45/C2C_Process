@@ -1,0 +1,27 @@
+{
+  "name": "auth-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/auth-service",
+  "sourceRoot": "apps/auth-service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/auth-service/src/main.ts",
+        "outputPath": "dist/apps/auth-service",
+        "tsConfig": "apps/auth-service/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "auth-service:build",
+        "inspect": false
+      }
+    }
+  }
+}

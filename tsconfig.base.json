@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@prisma/client/product": ["node_modules/@prisma/client/product"],
+      "@prisma/client/admin-mod": ["node_modules/@prisma/client/admin-mod"],
+      "@prisma/client/auth": ["node_modules/@prisma/client/auth"],
+      "@prisma/client/order": ["node_modules/@prisma/client/order"],
+      "@prisma/client/chat": ["node_modules/@prisma/client/chat"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
