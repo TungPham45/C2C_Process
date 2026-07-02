@@ -6,11 +6,11 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to VB Server via SSH
-    runs-on: ubuntu-latest
+    name: Deploy to Local VirtualBox
+    runs-on: self-hosted
 
     steps:
-      - name: Deploy ia SSH Action
+      - name: Deploy to Local VirtualBox
         run: |
           cd /home/tung/c2c-platform-run
           bash scripts/deploy.sh
