@@ -13,4 +13,5 @@ jobs:
       - name: Deploy to Local VirtualBox
         run: |
           cd /home/tung/c2c-platform-run
+          git pull origin main
           bash scripts/deploy.sh
