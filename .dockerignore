@@ -1,19 +1,18 @@
-# Bỏ qua thư viện có sẵn (để Docker tự cài mới)
-node_modules/
-.pnp
-.pnp.js
+# Chặn mọi thư mục node_modules dù nó nằm ở đâu (root hay apps/libs)
+**/node_modules/
+**/.pnp*
 
-# Bỏ qua code đã build cũ
-dist/
-coverage/
-build/
+# Chặn mọi thư mục build cũ
+**/dist/
+**/coverage/
+**/build/
 
 # Bỏ qua lịch sử Git và cấu hình CI
 .git/
 .github/
 .svn/
 
-# Bỏ qua cache của Nx Monorepo
+# Bỏ qua cache của Nx Monorepo từ máy host
 .nx/
 .eslintcache
 
