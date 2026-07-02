@@ -1,9 +1,23 @@
-.git
-.nx
-.vscode
-dist
-node_modules
-tmp
-prototypes
-*.log
+# Bỏ qua thư viện có sẵn (để Docker tự cài mới)
+node_modules/
+.pnp
+.pnp.js
 
+# Bỏ qua code đã build cũ
+dist/
+coverage/
+build/
+
+# Bỏ qua lịch sử Git và cấu hình CI
+.git/
+.github/
+.svn/
+
+# Bỏ qua cache của Nx Monorepo
+.nx/
+.eslintcache
+
+# Bỏ qua các file môi trường ảo và log
+.env
+deploy.log
+npm-debug.log*

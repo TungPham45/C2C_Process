@@ -50,5 +50,8 @@ Thumbs.db
 
 vite.config.*.timestamp*
 
+# Thêm các dòng này vào cuối file .gitignore nếu chưa có
+.env
+deploy.log
 # Uploaded product assets
 # Keep this folder tracked because product_db depends on committed demo images.

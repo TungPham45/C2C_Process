@@ -3,14 +3,15 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY nx.json tsconfig.base.json ./
-COPY apps ./apps
-COPY libs ./libs
 
 # 1. Chỉ đường thẳng cho React biết Backend đang nằm ở cùng host với relative path
 ARG VITE_API_BASE_URL=/api
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
 RUN npm ci --ignore-scripts --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000
+
+COPY apps ./apps
+COPY libs ./libs
 RUN npx nx build web --prod
 
 FROM nginx:alpine

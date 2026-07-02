@@ -7,13 +7,14 @@ RUN apt-get update -y && apt-get install -y openssl
 
 COPY package*.json ./
 COPY nx.json tsconfig.base.json ecosystem.config.js ./
-COPY apps ./apps
-COPY libs ./libs
 
 ARG APP_NAME=api-gateway
 ENV APP_NAME=$APP_NAME
 
 RUN npm ci --ignore-scripts --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000
+
+COPY apps ./apps
+COPY libs ./libs
 
 RUN npx prisma generate --schema=libs/prisma-clients/admin-mod-client/schema.prisma
 RUN npx prisma generate --schema=libs/prisma-clients/auth-client/schema.prisma

@@ -22,6 +22,12 @@
         "buildTarget": "product-service:build",
         "inspect": false
       }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx jest --config apps/product-service/jest.config.ts --passWithNoTests"
+      }
     }
   }
 }
