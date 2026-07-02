@@ -8,22 +8,10 @@ log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"; }
 
 cd "$DEPLOY_DIR"
 
-# Lưu lại commit hiện tại đề phòng cần rollback
-PREV_COMMIT=$(git rev-parse HEAD)
 log "=== DEPLOY START ==="
-log "Previous commit: $PREV_COMMIT"
+log "Commit đang triển khai: $(git rev-parse HEAD)"
 
-# Kéo code mới nhất từ GitHub về máy ảo
-git pull origin main
-NEW_COMMIT=$(git rev-parse HEAD)
-log "New commit: $NEW_COMMIT"
-
-if [ "$PREV_COMMIT" = "$NEW_COMMIT" ]; then
-    log "Không có thay đổi mới. Bỏ qua bước rebuild."
-    exit 0
-fi
-
-# Chỉ Rebuild các container backend và web (Giữ nguyên database postgres)
+# Chỉ Rebuild các container backend và web (Giữ nguyên database)
 log "Đang tiến hành rebuild các container backend và web..."
 docker-compose up --build -d --no-deps backend web
 
@@ -31,14 +19,16 @@ docker-compose up --build -d --no-deps backend web
 log "Đang chờ 20 giây để các dịch vụ khởi chạy..."
 sleep 20
 
-if docker-compose ps | grep -q "Up"; then
-    log "✅ TRIỂN KHAI THÀNH CÔNG (DEPLOY SUCCESS)"
-    docker-compose ps
-else
-    log "❌ TRIỂN KHAI THẤT BẠI — Đang tự động rollback về commit $PREV_COMMIT"
-    git checkout "$PREV_COMMIT"
-    docker-compose up --build -d --no-deps backend web
+# Kiểm tra khắt khe: Chỉ cần 1 trong 2 (backend hoặc web) bị lỗi là đánh trượt ngay
+if docker-compose ps backend web | grep -Eq 'Exit|Restarting'; then
+    log "❌ TRIỂN KHAI THẤT BẠI — Phát hiện container bị chết (Crash)"
+    docker-compose ps backend web
+    
+    # Báo lỗi lên GitHub Actions để bôi đỏ luồng chạy
     exit 1
+else
+    log "✅ TRIỂN KHAI THÀNH CÔNG (DEPLOY SUCCESS)"
+    docker-compose ps backend web
 fi
 
 log "=== DEPLOY END ==="
